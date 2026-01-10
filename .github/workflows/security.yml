@@ -1,0 +1,28 @@
+name: Security Scan
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  security-scan:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Run Universal Security Scanner
+        uses: kmesiab/universal-security-action@main
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          severity-threshold: 'low'
+          fail-on-severity: 'critical'
+          copilot-assignee: 'kmesiab'
+          languages: 'python'
