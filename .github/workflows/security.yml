@@ -20,7 +20,7 @@ jobs:
       
       - name: Run Universal Security Scanner
         uses: kmesiab/ai-self-healing-security@main
-          with:
+        with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           severity-threshold: 'low'
           fail-on-severity: 'critical'
