@@ -19,7 +19,7 @@ jobs:
         uses: actions/checkout@v4
       
       - name: Run Universal Security Scanner
-        uses: kmesiab/ai-self-healing-security@latest
+        uses: kmesiab/ai-self-healing-security@v1.3
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           severity-threshold: 'low'
